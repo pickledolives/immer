@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <style type="text/css">
+    html, body { margin:0; padding:0; overflow:hidden }
+  </style>
+</head>
+<body id="screen-body">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://web.resource.org/cc/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" version="1.1" baseProfile="full" width="480px" height="360px" viewBox="0 0 480 360" preserveAspectRatio="xMidYMid meet" id="svg_document" style="zoom: 1;"><!-- Created with macSVG - https://macsvg.org/ - https://github.com/dsward2/macsvg/ --><title id="svg_document_title">Untitled.svg</title><defs id="svg_document_defs"></defs><g id="main_group"><rect id="background_rect" fill="#ffffff" x="0px" y="0px" width="480px" height="360px"></rect></g><rect stroke="crimson" height="356px" x="2px" id="rect1" stroke-width="3px" width="476px" y="2px" fill="#ffffff" transform=""></rect></svg>
+  <script type="text/javascript">
+    var urlParams = new URLSearchParams(window.location.search);
+    var tl = parseInt(urlParams.get('pad_pc'));
+    var hw = 100 - (2 * tl);
+    var piece = document.getElementById('screen-body').firstElementChild;
+    piece.style.position = 'fixed';
+    piece.style.top = tl + '%';
+    piece.style.left = tl + '%';
+    piece.style.height = hw + '%';
+    piece.style.width = hw + '%';
+  </script>
+</body>
+</html>

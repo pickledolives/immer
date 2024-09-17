@@ -4,7 +4,7 @@ require 'rqrcode'
 # TODO: convert videos: ffmpeg -i xxx.mov xxx.mp4
 
 installation_name = ARGV[0] || raise('no installation provided')
-template = File.read('./screen_files/template.xhtml.erb')
+template = File.read('./devices/screen/template.xhtml.erb')
 
 Dir.foreach("./tmp/#{installation_name}/images/") do |filename|
   next if filename == '.' or filename == '..'
@@ -19,5 +19,5 @@ Dir.foreach("./tmp/#{installation_name}/images/") do |filename|
     else raise("unsupported image file format '#{ext}' for #{filename}")
     end
   screen_file_html = ERB.new(template).result_with_hash(image_tag: image_tag)
-  File.open("./tmp/#{installation_name}/media/#{filename.gsub(ext, '.xhtml')}", 'w') { |f| f.puts screen_file_html }
+  File.open("./installations/#{installation_name}/media/#{filename.gsub(ext, '.xhtml')}", 'w') { |f| f.puts screen_file_html }
 end

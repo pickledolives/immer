@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <link href='https://fonts.googleapis.com/css?family=Mate' rel='stylesheet'></link>
+  <style type="text/css">
+    html, body { margin:0; padding:0; overflow:hidden; font-family: 'Mate'; }
+    #info-qr svg { background-color: white; }
+    #info {
+      opacity: 0;
+      transition: opacity 1s;
+    }
+    #info.fade-in {
+      opacity: 1;
+    }
+    #info.fade-out {
+      opacity: 0;
+    }
+  </style>
+</head>
+<body id="screen-body">
+  <%= image_tag %>
+  <div id="info" style="display: none; width: 92%; position: fixed; bottom: 2%; left: 2%; padding: 2%; z-index: 2; background: FloralWhite; border-radius: 3px;">
+    <div style="width: 80%; float: left;">
+      <div id="info-title" style="display: none; font-size: 2em;"><%= info[:title] %></div>
+      <p id="info-artist" style="display: none;"><%= info[:artist] %></p>
+      <p id="info-descr" style="display: none;"><%= info[:descr] %></p>
+      <p id="info-price" style="display: none;"><%= info[:price] %></p>
+    </div>
+    <div style="width: 20%; float: left; text-align: right;">
+      <div id="info-qr" style="display: none;"><%= info[:qr_code] %></div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var urlParams = new URLSearchParams(window.location.search);
+    var tl = parseInt(urlParams.get('pad_pc'));
+    var bg = urlParams.get('background') || 'black';
+    console.log(bg);
+    var info = urlParams.get('info');
+    info = info ? info.split(',') : [];
+    if (info[0] == 'all') { info = ['title', 'artist', 'descr', 'qr', 'price']; }
+    var infoDurationMs = parseInt(urlParams.get('info_show_ms')) || 5000;
+    var hw = 100 - (2 * tl);
+    document.body.style.backgroundColor = bg;
+    var piece = document.getElementById('screen-body').firstElementChild;
+    piece.style.position = 'fixed';
+    piece.style.zIndex = 1;
+    piece.style.top = tl + '%';
+    piece.style.left = tl + '%';
+    piece.style.height = hw + '%';
+    piece.style.width = hw + '%';
+    if (info.length > 0) {
+      info.forEach(opt => document.getElementById('info-' + opt).style.display = 'block');
+      document.getElementById('info').style.display = 'block';
+      setTimeout(function(){ document.getElementById('info').classList.add('fade-in'); }, 1000);
+      setTimeout(function(){ document.getElementById('info').classList.add('fade-out'); }, 1000 + infoDurationMs);
+    }
+  </script>
+</body>
+</html>
