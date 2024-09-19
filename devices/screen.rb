@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'watir'
 require 'uri/query_params'
 
@@ -11,7 +13,7 @@ class Screen < Device
     @installation_name = args['installation_name']
   end
 
-  def on(conf_conf = {})
+  def turn_on(conf = {})
     if @browser&.exist?
       @browser.goto(location(conf))
     else
@@ -25,7 +27,7 @@ class Screen < Device
     end
   end
 
-  def off(_conf = {})
+  def turn_off(_conf = {})
     @browser&.close
   end
 

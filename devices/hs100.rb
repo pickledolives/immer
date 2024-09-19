@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Hs100 < Plug
   def initialize(args)
     super('switch', args['entity_id'], args['avg_lag_ms'])

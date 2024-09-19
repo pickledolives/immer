@@ -1,9 +1,12 @@
+# frozen_string_literal: true
+
 class HaSwitch < HaDevice
-  def on(_conf = {})
-    service_request('turn_on')
+  def turn_on(_conf = {})
+    super({})
+    pp ">>> FAN TURN ON!!!!"
   end
 
-  def off(_conf = {})
-    service_request('turn_off')
+  def turn_off(_conf = {})
+    super({})
   end
 end

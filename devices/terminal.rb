@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Terminal < Device
   def initialze(args)
   end

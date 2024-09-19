@@ -7,12 +7,14 @@ GEM
     diff-lcs (1.5.1)
     e2mmap (0.1.0)
     logger (1.6.1)
-    mustermann (1.1.2)
+    mustermann (3.0.3)
       ruby2_keywords (~> 0.0.1)
     os (1.1.4)
+    osc-ruby (1.1.5)
     rack (2.2.9)
-    rack-protection (2.0.8.1)
-      rack
+    rack-protection (3.2.0)
+      base64 (>= 0.1.0)
+      rack (~> 2.2, >= 2.2.4)
     rack-test (2.1.0)
       rack (>= 1.3)
     regexp_parser (2.9.2)
@@ -43,10 +45,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    sinatra (2.0.8.1)
-      mustermann (~> 1.0)
-      rack (~> 2.0)
-      rack-protection (= 2.0.8.1)
+    sinatra (3.2.0)
+      mustermann (~> 3.0)
+      rack (~> 2.2, >= 2.2.4)
+      rack-protection (= 3.2.0)
       tilt (~> 2.0)
     strscan (3.1.0)
     thwait (0.2.0)
@@ -61,14 +63,16 @@ GEM
 
 PLATFORMS
   arm64-darwin-23
+  x86_64-darwin-21
 
 DEPENDENCIES
   color (~> 1.8)
   os (~> 1.1.0)
+  osc-ruby
   rack-test
   rqrcode (~> 1.1)
   rspec
-  sinatra (~> 2.0.8)
+  sinatra (~> 3.2.0)
   thwait
   uri-query_params (~> 0.7.1)
   watir (~> 6.1)

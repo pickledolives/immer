@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Plug < HaDevice
   def plug_on; raise(NotImplementedError); end
   def plug_off; raise(NotImplementedError); end
