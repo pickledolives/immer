@@ -4,7 +4,8 @@ require 'color'
 
 class HaYeelightColorBulb < HaDevice
   ALLOWED_ATTRS = %w[rgb_color brightness_pct]
-  
+  RGB_ARGS = %w[r g b]
+
   def initialize(args)
     super(args)
     # @on, @h, @s, @l = TODO: fetch from lightbulb
@@ -17,6 +18,9 @@ class HaYeelightColorBulb < HaDevice
     if conf.key?('color')
       @r, @g, @b = calc_color(conf)
       conf.delete('color')
+      conf['rgb_color'] = [@r, @g, @b]
+    elsif RGB_ARGS.all? { |k| !conf[k].nil? }
+      @r, @g, @b = calc_color(conf)
       conf['rgb_color'] = [@r, @g, @b]
     end
     if conf.key?('brightness_pct')

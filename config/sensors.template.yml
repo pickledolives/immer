@@ -1,0 +1,5 @@
+sensors:
+  #environment_name:
+    #device_name:
+    #  model_class: xxx
+    #  ...

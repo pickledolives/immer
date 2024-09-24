@@ -6,7 +6,7 @@ require 'rqrcode'
 installation_name = ARGV[0] || raise('no installation provided')
 template = File.read('./devices/screen/template.xhtml.erb')
 
-Dir.foreach("./tmp/#{installation_name}/images/") do |filename|
+Dir.foreach("./installations/#{installation_name}/images/") do |filename|
   next if filename == '.' or filename == '..'
   ext = File.extname(filename)
   art_piece_address = filename.split('.').first

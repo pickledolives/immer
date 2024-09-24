@@ -18,8 +18,6 @@ class HomeAssistant
     @ha_ip = ENV.fetch('HA_IP' ,`arp -a | grep #{HA_CONFIG['mac']}`[/\(.*?\)/][1..-2])
     @states = JSON.parse(RestClient.get("http://#{@ha_ip}:8123/api/states", HA_AUTH).body).reject { |r| HA_IGNORE_DOMAINS.any? { |d| r['entity_id'].start_with?(d) } }
     @services = JSON.parse(RestClient.get("http://#{@ha_ip}:8123/api/services", HA_AUTH).body)
-    #pp @states
-    #pp @services
   end
 
   def service_request(ha_domain, ha_service, entity_id, payload = {})
